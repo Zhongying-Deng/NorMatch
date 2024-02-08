@@ -1,0 +1,3 @@
+python train_fixmatch.py --dataset cifar10 --num-labeled 4000 --arch wideresnet --batch-size 64 --lr 0.03 --expand-labels --seed 5 --out results/cifar10@4000.5 --gpu-id 7 --no-progress 2>&1|tee -a ./results/cifar10@4000.5/baseline_bs64_seed5_lr0.03.log &
+# Use DistributedDataParallel for training
+#python -m torch.distributed.launch --nproc_per_node 4 ./train_fixmatch.py --dataset cifar100 --num-labeled 10000 --arch wideresnet --batch-size 16 --lr 0.03 --wdecay 0.001 --expand-labels --seed 5 --out results/cifar100@10000 --gpu-id 6 --no-progress 2>&1|tee -a ./results/cifar100@10000/baseline_bs64_seed5_lr0.03.log &
